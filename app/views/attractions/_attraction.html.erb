@@ -1,2 +1,6 @@
 
-<strong> <%= link_to attraction.name, attraction_path(attraction) %></strong><br/>
+<% if current_user.admin %>
+<strong>  <%= link_to "Show #{attraction.name}", attraction_path(attraction) %></strong><br>
+<% else %>
+<strong> <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %></strong><br/>
+<% end %>

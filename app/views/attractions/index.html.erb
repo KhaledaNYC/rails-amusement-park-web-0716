@@ -1,2 +1,6 @@
 <h1>Attractions</h1>
 <%= render (@attractions) %>
+
+<%if current_user.admin %>
+<%= link_to "New Attraction", 'attractions/new'%>
+<% end %>

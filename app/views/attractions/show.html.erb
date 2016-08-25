@@ -4,3 +4,10 @@ Happiness Rating: <%= @attraction.happiness_rating %><br/>
 Tickets: <%= @attraction.tickets %><br/>
 Nausea Rating: <%= @attraction.nausea_rating %><br/>
 Min Height: <%= @attraction.min_height %><br/>
+
+<%= form_tag('/rides', method: :POST) do %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<input name="user_id" type="hidden" value="<%= current_user.id %>">
+<input name="attraction_id" type="hidden" value="<%=@attraction.id%>">
+<input type="submit" value="Go on this ride">
+<%end %>
